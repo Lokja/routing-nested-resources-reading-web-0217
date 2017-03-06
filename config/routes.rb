@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :authors, only: [:show]
+  resources :authors do
+    resources :posts
+  end
 
-  resources :posts, only: [:index, :show, :new, :create, :edit, :update]
+  resources :posts
 
   root 'posts#index'
 end
